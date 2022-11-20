@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "329213144102",
+    "project_id": "appluces-b59af",
+    "storage_bucket": "appluces-b59af.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:329213144102:android:3dcccac9161b42ffec0ae7",
+        "android_client_info": {
+          "package_name": "com.example.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "329213144102-hdm9si7ae57d23bcjcvvkg8mpj2vosi5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6n2aTczC3TZZlGsDtwTqN_kuOoB3_nEk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "329213144102-hdm9si7ae57d23bcjcvvkg8mpj2vosi5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

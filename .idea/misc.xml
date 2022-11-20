@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/matias/AndroidStudioProjects/APP3/app/src/main/res/drawable/ic_channel_background.xml" value="0.356" />
+        <entry key="..\:/Users/matias/AndroidStudioProjects/APP3/app/src/main/res/layout/activity_contrasena_perdida.xml" value="0.19166666666666668" />
+        <entry key="..\:/Users/matias/AndroidStudioProjects/APP3/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/matias/AndroidStudioProjects/APP3/app/src/main/res/layout/activity_main2.xml" value="0.371875" />
+        <entry key="..\:/Users/matias/AndroidStudioProjects/APP3/app/src/main/res/layout/activity_principal.xml" value="0.371875" />
+        <entry key="..\:/Users/matias/AndroidStudioProjects/APP3/app/src/main/res/layout/activity_regristrar.xml" value="0.33" />
+        <entry key="..\:/Users/matias/AndroidStudioProjects/APP3/app/src/main/res/layout/bottombar.xml" value="0.33" />
+        <entry key="..\:/Users/matias/AndroidStudioProjects/APP3/app/src/main/res/layout/bottonbar.xml" value="0.33" />
+        <entry key="..\:/Users/matias/AndroidStudioProjects/APP3/app/src/main/res/layout/fragment_a_p_p.xml" value="0.3061594202898551" />
+        <entry key="..\:/Users/matias/AndroidStudioProjects/APP3/app/src/main/res/layout/fragment_configuracion.xml" value="0.3061594202898551" />
+        <entry key="..\:/Users/matias/AndroidStudioProjects/APP3/app/src/main/res/layout/fragment_estadistica.xml" value="0.3061594202898551" />
+        <entry key="..\:/Users/matias/AndroidStudioProjects/App-luces/app/src/main/res/layout/activity_main.xml" value="0.371875" />
+        <entry key="..\:/Users/matias/AndroidStudioProjects/App-luces/app/src/main/res/layout/activity_principal.xml" value="0.5922150139017609" />
+        <entry key="..\:/Users/matias/AndroidStudioProjects/App-luces/app/src/main/res/layout/activity_regristrar.xml" value="0.371875" />
+        <entry key="..\:/Users/matias/AndroidStudioProjects/App-luces/app/src/main/res/layout/fragment_a_p_p.xml" value="0.371875" />
+        <entry key="..\:/Users/matias/AndroidStudioProjects/App-luces/app/src/main/res/layout/fragment_aplicacion.xml" value="0.371875" />
+        <entry key="..\:/Users/matias/AndroidStudioProjects/App-luces/app/src/main/res/layout/fragment_configuracion.xml" value="0.25" />
+        <entry key="..\:/Users/matias/AndroidStudioProjects/App-luces/app/src/main/res/layout/fragment_portada.xml" value="0.371875" />
+        <entry key="..\:/Users/matias/Desktop/App-luces-master/app/src/main/res/layout/activity_contrasena_perdida.xml" value="0.3120471014492754" />
+        <entry key="..\:/Users/matias/Desktop/App-luces-master/app/src/main/res/layout/activity_main.xml" value="0.3120471014492754" />
+        <entry key="..\:/Users/matias/Desktop/App-luces-master/app/src/main/res/layout/activity_principal.xml" value="0.3120471014492754" />
+        <entry key="..\:/Users/matias/Desktop/App-luces-master/app/src/main/res/layout/activity_regristrar.xml" value="0.33" />
+        <entry key="..\:/Users/matias/Desktop/App-luces-master/app/src/main/res/layout/bottonbar.xml" value="0.3120471014492754" />
+        <entry key="..\:/Users/matias/Desktop/App-luces-master/app/src/main/res/layout/fragment_a_p_p.xml" value="0.3120471014492754" />
+        <entry key="..\:/Users/matias/Desktop/App-luces-master/app/src/main/res/layout/fragment_aplicacion.xml" value="0.24048913043478262" />
+        <entry key="..\:/Users/matias/Desktop/App-luces-master/app/src/main/res/layout/fragment_configuracion.xml" value="0.3120471014492754" />
+        <entry key="..\:/Users/matias/Desktop/App-luces-master/app/src/main/res/layout/fragment_estadistica.xml" value="0.3120471014492754" />
+        <entry key="..\:/Users/matias/Desktop/App-luces-master/app/src/main/res/layout/fragment_portada.xml" value="0.24048913043478262" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.358695652173913" />
+      </ProjectState>
+    </option>
+  </component>
+</project>

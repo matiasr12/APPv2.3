@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">APP</string>
+    <string name="correo">Correo</string>
+    <string name="contrasenia">Contraseña</string>
+    <string name="usuario">Usuario</string>
+    <string name="btningresar">Ingresar</string>
+    <string name="btnregistrar">Registra</string>
+    <string name="contrasenia2">Reingrese contraseña</string>
+    <string name="title_activity_registrar">contrasenaperdida</string>
+    <string name="registrate">Crear cuenta</string>
+    <string name="Dia">Dia</string>
+    <string name="Usos">Usos</string>
+    <string name="Hora">Hora</string>
+    <string name="Desconectado">Desconectado</string>
+    <string name="Conectar">Conectar</string>
+    <string name="prender">prender</string>
+    <string name="Apagar">Apagar</string>
+    <string name="LvUsuarios">lista</string>
+
+
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
