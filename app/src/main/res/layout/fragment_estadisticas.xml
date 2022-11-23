@@ -8,7 +8,7 @@
     tools:context=".Aplicacion" >
 
     <ListView
-        android:id="@+id/ListaUsuarios"
+        android:id="@+id/lvUsuarios"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#19B7DD" />

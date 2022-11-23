@@ -3,12 +3,12 @@ package com.example.app;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.app.Modelo.Usuarios;
@@ -27,12 +27,22 @@ public class Estadisticas extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_estadisticas);
-        //ListaUsuarios = (ListView) findViewById(R.id.ListaUsuarios);
-        ArrayList<Usuarios> usuarios = new ArrayList<Usuarios>();
-        cargarBd();
+
+
 
     }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.fragment_estadisticas, container, false);
+        ListaUsuarios = (ListView) v.findViewById(R.id.lvUsuarios);
+        ArrayList<Usuarios> usuarios = new ArrayList<Usuarios>();
+        cargarBd();
+        return v;
+    }
+
+
 
     private void setContentView(int fragment_estadisticas) {
     }
@@ -43,11 +53,12 @@ public class Estadisticas extends Fragment {
         ValueEventListener UsuarioListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
+                System.out.println("SNAAAP "+snapshot);
                 for (DataSnapshot d: snapshot.getChildren()) {
                     String key = d.child("key").getValue().toString();
-                    String NombreUsuario= d.child("usuario").getValue().toString();
-                    String IdCorreo=d.child("correo").getValue().toString();
+                    String NombreUsuario= d.child("NombreUsuario").getValue().toString();
+                    String IdCorreo=d.child("IdCorreo").getValue().toString();
+                    String contraseña=d.child("contraseña").getValue().toString();
 
 
                 }
