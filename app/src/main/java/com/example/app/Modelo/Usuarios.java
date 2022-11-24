@@ -17,6 +17,9 @@ public class Usuarios {
 
     }
 
+    public static void add(Usuarios a) {
+    }
+
     @Override
     public String toString() {
         return "Nombre:" +this.NombreUsuario+" Correo: "+this.IdCorreo;

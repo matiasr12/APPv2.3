@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.app.Modelo.Usuarios;
@@ -23,6 +24,9 @@ import java.util.ArrayList;
 
 public class Estadisticas extends Fragment {
     private ListView ListaUsuarios;
+    ListView lvUsuarios;
+    ArrayList<Usuarios> Usuario;
+    ArrayAdapter<Usuarios> adpUsuario;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -59,6 +63,9 @@ public class Estadisticas extends Fragment {
                     String NombreUsuario= d.child("NombreUsuario").getValue().toString();
                     String IdCorreo=d.child("IdCorreo").getValue().toString();
                     String contraseña=d.child("contraseña").getValue().toString();
+                    Usuarios a = new Usuarios(key,NombreUsuario,IdCorreo,contraseña);
+                    Usuarios.add(a);
+
 
 
                 }

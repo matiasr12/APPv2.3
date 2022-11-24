@@ -1,29 +1,35 @@
 package com.example.app;
 
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Fecha extends AppCompatActivity {
-   Button Prender;
+    TextView textview1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_aplicacion);
 
-        Prender = findViewById(R.id.Prender);
+        textview1=findViewById(R.id.textview1);
+        textview1.setText(getCurrentTime());
 
-        Prender.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.i("i","hola");
-            }
-        });
+
+
+    }
+   private  String getCurrentTime(){
+       return new SimpleDateFormat("hh:mm", Locale.getDefault()).format(new Date());
+
+   }
+
 
     }
 
-}
+
