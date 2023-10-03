@@ -37,15 +37,16 @@ public class Principal extends AppCompatActivity {
                         break;
 
                     case 3:
+                        // tengo que hacer un if para hacer el validador para que pueda agregar un validador
                         Estadisticas e = new Estadisticas();
                         getSupportFragmentManager().beginTransaction().replace(R.id.la1, e).commit();
 
                         break;
 
-                    case 4:
-                         Lucesepecificas  L= new Lucesepecificas();
-                        getSupportFragmentManager().beginTransaction().replace(R.id.la1,L).commit();
-                        break;
+                   // case 4:
+                     //    Lucesepecificas  L= new Lucesepecificas();
+                       // getSupportFragmentManager().beginTransaction().replace(R.id.la1,L).commit();
+                        //break;
 
 
 

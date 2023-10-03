@@ -20,29 +20,23 @@
             android:id="@+id/tag2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:icon="@drawable/tag1img"
-            android:text="Configuracion" />
+            android:icon="@drawable/busquedamap"
+            android:text="tiendas" />
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/tag3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:icon="@drawable/ic_baseline_play_circle_filled_24"
-            android:text="Wednesday" />
+            android:icon="@drawable/busqueda"
+            android:text="busqueda" />
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/tag4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:icon="@drawable/ic_baseline_sms_failed_24"
-            android:text="Tab5" />
+            android:icon="@drawable/agregar"
+            android:text="agregar" />
 
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/tag5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:icon="@drawable/ic_baseline_account_circle_24"
-            android:text="Tab6" />
     </com.google.android.material.tabs.TabLayout>
 
 </LinearLayout>

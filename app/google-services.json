@@ -1,36 +1,26 @@
 {
   "project_info": {
-    "project_number": "329213144102",
-    "project_id": "appluces-b59af",
-    "storage_bucket": "appluces-b59af.appspot.com"
+    "project_number": "844534225638",
+    "project_id": "appalimentos-1660a",
+    "storage_bucket": "appalimentos-1660a.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:329213144102:android:3dcccac9161b42ffec0ae7",
+        "mobilesdk_app_id": "1:844534225638:android:de734e33d9e7c98ebab927",
         "android_client_info": {
           "package_name": "com.example.app"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "329213144102-hdm9si7ae57d23bcjcvvkg8mpj2vosi5.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyA6n2aTczC3TZZlGsDtwTqN_kuOoB3_nEk"
+          "current_key": "AIzaSyDVG9aBGI5NbFFbee2JMpmxdu_k9dFQHzc"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "329213144102-hdm9si7ae57d23bcjcvvkg8mpj2vosi5.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }

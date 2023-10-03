@@ -40,9 +40,9 @@ public class Estadisticas extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_estadisticas, container, false);
-        ListaUsuarios = (ListView) v.findViewById(R.id.lvUsuarios);
-        ArrayList<Usuarios> usuarios = new ArrayList<Usuarios>();
-        cargarBd();
+       // ListaUsuarios = (ListView) v.findViewById(R.id.lvUsuarios);
+        //ArrayList<Usuarios> usuarios = new ArrayList<Usuarios>();
+        //cargarBd();
         return v;
     }
 
