@@ -1,5 +1,6 @@
 package com.example.app;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -11,10 +12,23 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
 
 
 public class MainActivity extends AppCompatActivity  {
     Button Registrar;
+    private EditText etCorreo;
+    private EditText etContrasena;
+    private EditText etUsuario;
+    private Button Conectar;
+    private String email ="";
+    private String password="";
+    private FirebaseAuth mAuth;
+    private DatabaseReference mDatabase;
 
 
     @Override
@@ -23,6 +37,24 @@ public class MainActivity extends AppCompatActivity  {
         setContentView(R.layout.activity_main);
         Registrar=(Button)findViewById(R.id.Registrar);
 
+        mAuth = FirebaseAuth.getInstance();
+        etCorreo=(EditText) findViewById(R.id.etCorreo);
+        etContrasena=(EditText) findViewById(R.id.etContrasena);
+        Conectar=(Button) findViewById(R.id.Conectar);
+
+        Conectar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                email = etCorreo.getText().toString();
+                password= etContrasena.getText().toString();
+                if(!email.isEmpty() && !password.isEmpty()){
+                    LoginUser();
+                }else{
+                    Toast.makeText(MainActivity.this, "Complete los campos", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
         Registrar.setOnClickListener(new View.OnClickListener(){
 
             @Override
@@ -32,29 +64,29 @@ public class MainActivity extends AppCompatActivity  {
 
             }
         });
+      
+
+    }
+
+    private void LoginUser() {
+        mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+              if(task.isSuccessful()){
+                  startActivity(new Intent(MainActivity.this,Principal.class));
+                  finish();
+
+              }else{
+                  Toast.makeText(MainActivity.this, "No se pudo iniciar", Toast.LENGTH_SHORT).show();
+              }
+            }
+        });
 
 
     }
 
-    public void login(View v){
-        //Validador de login
-        EditText campo1 = this.findViewById(R.id.Correo);
-        String Correo = campo1.getText().toString();
-        EditText campo2 = this.findViewById(R.id.Contraseña);
-        String Contraseña = campo2.getText().toString();
-        System.out.println(Correo+" "+Contraseña);
 
-        if(Correo.equals("c1") && Contraseña.equals("123")){
-            Intent i = new Intent(this,Principal.class);
-            startActivity(i);
-        }
-        else{
-            Toast.makeText(this,"Erro en sus credenciales", Toast.LENGTH_LONG).show();
-
-        }
-
-        }
-       public  void  crearCuenta(View v){
+    public  void  crearCuenta(View v){
         Intent i = new Intent(this,Regristrar.class);
          startActivity(i);
        }

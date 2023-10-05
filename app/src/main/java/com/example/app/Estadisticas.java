@@ -1,11 +1,13 @@
 package com.example.app;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +25,10 @@ import java.util.ArrayList;
 
 
 public class Estadisticas extends Fragment {
+
+    // funcion del regristro de datos de la tienda
+    static final int REQUEST_IMAGEN_CAPTURE =1;
+    private DatabaseReference mStorage;
     private ListView ListaUsuarios;
     ListView lvUsuarios;
     ArrayList<Usuarios> Usuario;
@@ -32,7 +38,17 @@ public class Estadisticas extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        mStorage = FirebaseDatabase.getInstance().getReference();
 
+
+
+    }
+    public  void tomar_foto(View v)
+    {
+        Intent takePictureIntent= new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if(takePictureIntent.resolveActivity(getActivity().getPackageManager())!=null){
+            startActivityForResult(takePictureIntent,REQUEST_IMAGEN_CAPTURE);
+        }
 
     }
 
@@ -46,49 +62,9 @@ public class Estadisticas extends Fragment {
         return v;
     }
 
-
-
-    private void setContentView(int fragment_estadisticas) {
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
     }
-
-    private void cargarBd() {
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference UsuarioRef = database.getReference("APPluces");
-        ValueEventListener UsuarioListener = new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                System.out.println("SNAAAP "+snapshot);
-                for (DataSnapshot d: snapshot.getChildren()) {
-                    String key = d.child("key").getValue().toString();
-                    String NombreUsuario= d.child("NombreUsuario").getValue().toString();
-                    String IdCorreo=d.child("IdCorreo").getValue().toString();
-                    String contraseña=d.child("contraseña").getValue().toString();
-                    Usuarios a = new Usuarios(key,NombreUsuario,IdCorreo,contraseña);
-                    Usuarios.add(a);
-
-
-
-                }
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                System.out.println("Un error");
-            }
-        };
-        UsuarioRef.addValueEventListener(UsuarioListener);
-
-    }
-
-
-
-
-
-
-
-
-
-
 }
 

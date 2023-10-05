@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -41,6 +42,7 @@ public  class Regristrar  extends AppCompatActivity{
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
         setContentView(R.layout.activity_regristrar);
+
         etCorreo=(EditText) findViewById(R.id.etCorreo);
         etContrasena=(EditText) findViewById(R.id.etContrasena);
         etUsuario=(EditText) findViewById(R.id.etUsuario);
@@ -70,9 +72,17 @@ public  class Regristrar  extends AppCompatActivity{
 
     }
     private void registerUser(){
+        Toast.makeText(this, "CORREO: "+email, Toast.LENGTH_SHORT).show();
         mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
+                task.addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        System.out.println("ERRORRRRRR!: ");
+                        System.out.println(e.toString());
+                    }
+                });
                if(task.isSuccessful()){
                  Map<String, String> map = new HashMap<>();
                  map.put("email",email);
