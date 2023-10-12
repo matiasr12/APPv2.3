@@ -8,10 +8,11 @@
     tools:context=".Aplicacion">
 
     <TextView
+        android:textColor="#FFFFFF"
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="nombre_de_tienda"
+        android:text="nombre de tienda"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.45"
@@ -20,7 +21,7 @@
         app:layout_constraintVertical_bias="0.101" />
 
     <EditText
-        android:id="@+id/editTextText2"
+        android:id="@+id/nTienda"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -33,10 +34,11 @@
         app:layout_constraintVertical_bias="0.132" />
 
     <TextView
+        android:textColor="#FFFFFF"
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="nombre_producto"
+        android:text="Nombre producto"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.486"
@@ -45,7 +47,7 @@
         app:layout_constraintVertical_bias="0.202" />
 
     <EditText
-        android:id="@+id/editTextText3"
+        android:id="@+id/nProducto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -58,10 +60,11 @@
         app:layout_constraintVertical_bias="0.237" />
 
     <TextView
+        android:textColor="#FFFFFF"
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="kilos_o_gramos"
+        android:text="kilos o Gramos"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -70,7 +73,7 @@
         app:layout_constraintVertical_bias="0.308" />
 
     <EditText
-        android:id="@+id/editTextText4"
+        android:id="@+id/Kogramos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -83,10 +86,11 @@
         app:layout_constraintVertical_bias="0.346" />
 
     <TextView
+        android:textColor="#FFFFFF"
         android:id="@+id/textView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="precios"
+        android:text="Precio"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -95,7 +99,7 @@
         app:layout_constraintVertical_bias="0.405" />
 
     <EditText
-        android:id="@+id/editTextText5"
+        android:id="@+id/Precio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -108,10 +112,11 @@
         app:layout_constraintVertical_bias="0.447" />
 
     <TextView
+        android:textColor="#FFFFFF"
         android:id="@+id/textView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="direccion_del_local"
+        android:text="Direccion del local"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -119,7 +124,7 @@
         app:layout_constraintVertical_bias="0.518" />
 
     <EditText
-        android:id="@+id/editTextText6"
+        android:id="@+id/Dlocal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -132,7 +137,7 @@
         app:layout_constraintVertical_bias="0.565" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btguardar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Guardar"
