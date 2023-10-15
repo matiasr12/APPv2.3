@@ -46,7 +46,7 @@ public class Estadisticas extends Fragment {
     static final int REQUEST_IMAGEN_CAPTURE =1;
     private DatabaseReference mStorage;
     private FirebaseFirestore mfirestore;
-
+//homa
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

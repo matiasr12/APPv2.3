@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">APP</string>
+    <string name="app_name"></string>
     <string name="correo">Correo</string>
     <string name="contrasenia">Contraseña</string>
     <string name="usuario">Usuario</string>
