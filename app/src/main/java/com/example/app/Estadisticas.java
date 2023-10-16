@@ -1,50 +1,43 @@
 package com.example.app;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.app.Modelo.Usuarios;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 
 public class Estadisticas extends Fragment {
-    Button btguardar;
+    Button btguardar,btnimg;
     EditText nTienda;
     EditText nProducto;
     EditText Kogramos;
     EditText Precio;
     EditText Dlocal;
+    EditText namegame;
 
 
     // funcion del regristro de datos de la tienda
     static final int REQUEST_IMAGEN_CAPTURE =1;
     private DatabaseReference mStorage;
+    StorageReference storageReference;
     private FirebaseFirestore mfirestore;
 //homa
 
@@ -53,6 +46,7 @@ public class Estadisticas extends Fragment {
         super.onCreate(savedInstanceState);
         //mStorage = FirebaseDatabase.getInstance().getReference();
         mfirestore = FirebaseFirestore.getInstance();
+       storageReference= FirebaseStorage.getInstance().getReference();
     }
 
 
@@ -66,6 +60,17 @@ public class Estadisticas extends Fragment {
         Precio = v.findViewById(R.id.Precio);
         Dlocal = v.findViewById(R.id.Dlocal);
         btguardar = v.findViewById(R.id.btguardar);
+        btnimg = v.findViewById(R.id.btnimg);
+
+
+        btnimg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(requireContext(), "Creado exitosamente", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
         btguardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -107,6 +112,7 @@ public class Estadisticas extends Fragment {
 
 
 
+
             }
         });
 
@@ -117,6 +123,7 @@ public class Estadisticas extends Fragment {
 
         return v;
     }
+
 
     private void postTiendas(String nombreTienda, String nombreProductos, String kilosOgramos, String precio, String dlocal) {
     }
