@@ -1,5 +1,7 @@
 package com.example.app;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -20,18 +22,18 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 
 
 public class Estadisticas extends Fragment {
-    Button btguardar,btnimg;
+    Button btguardar,btnnagregar,btborrar;
     EditText nTienda;
     EditText nProducto;
     EditText Kogramos;
     EditText Precio;
     EditText Dlocal;
-    EditText namegame;
 
 
     // funcion del regristro de datos de la tienda
@@ -39,14 +41,22 @@ public class Estadisticas extends Fragment {
     private DatabaseReference mStorage;
     StorageReference storageReference;
     private FirebaseFirestore mfirestore;
+    String storage_path ="Fotos/*";
+    private static final int COD_SEL_STORAGE = 200;
+    private static final int COD_SEL_IMAGE = 300;
+
+
+    private Uri image_url;
+    String photo = "photo";
+    String idd;
+
 //homa
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //mStorage = FirebaseDatabase.getInstance().getReference();
-        mfirestore = FirebaseFirestore.getInstance();
-       storageReference= FirebaseStorage.getInstance().getReference();
+
     }
 
 
@@ -54,22 +64,24 @@ public class Estadisticas extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_estadisticas, container, false);
+
+        storageReference= FirebaseStorage.getInstance().getReference();
+        mfirestore = FirebaseFirestore.getInstance();
         nTienda = v.findViewById(R.id.nTienda);
         nProducto = v.findViewById(R.id.nProducto);
         Kogramos = v.findViewById(R.id.Kogramos);
         Precio = v.findViewById(R.id.Precio);
         Dlocal = v.findViewById(R.id.Dlocal);
         btguardar = v.findViewById(R.id.btguardar);
-        btnimg = v.findViewById(R.id.btnimg);
+        btnnagregar= v.findViewById(R.id.btnnagregar);
+        btborrar = v.findViewById(R.id.btborrar);
 
 
-        btnimg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(requireContext(), "Creado exitosamente", Toast.LENGTH_SHORT).show();
 
-            }
-        });
+
+
+
+
 
         btguardar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -121,13 +133,20 @@ public class Estadisticas extends Fragment {
 
 
 
+
         return v;
+
     }
+
+
 
 
     private void postTiendas(String nombreTienda, String nombreProductos, String kilosOgramos, String precio, String dlocal) {
     }
 
-
 }
+
+
+
+
 
