@@ -47,10 +47,14 @@ public class Aplicacion extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        // funcion para llamar en el frackmento
+        View vista = inflater.inflate(R.layout.fragment_aplicacion, container, false);
         ref = FirebaseDatabase.getInstance().getReference().child("Productos");
-        rv = getView().findViewById(R.id.rv);
-        searchView = getView().findViewById(R.id.search);
-        //lm = new LinearLayoutManager(this);
+        rv = vista.findViewById(R.id.rv);
+        //rv = getView().findViewById(R.id.rv);
+        searchView = vista.findViewById(R.id.search);
+        //searchView = getView().findViewById(R.id.search);
+        lm = new LinearLayoutManager(getContext());
         rv.setLayoutManager(lm);
         list = new ArrayList<>();
         adapter = new adapterproductos(list);
@@ -64,6 +68,7 @@ public class Aplicacion extends Fragment {
                         list.add(ms);
                     }
                     adapter.notifyDataSetChanged();
+
                 }
             }
 
@@ -86,7 +91,7 @@ public class Aplicacion extends Fragment {
             }
         });
 
-        return inflater.inflate(R.layout.fragment_aplicacion, container, false);
+        return vista;
 
 
     }

@@ -25,13 +25,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="direccionDelLocal" />
+
         <TextView
             android:id="@+id/tv_kog"
-            android:textColor="#000"
-            android:textSize="25dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="tv_kiloOgramos" />
+            android:text="kiloOgramos"
+            android:textColor="#000"
+            android:textSize="25dp" />
         <TextView
             android:id="@+id/tv_nombre"
             android:textColor="#000"
