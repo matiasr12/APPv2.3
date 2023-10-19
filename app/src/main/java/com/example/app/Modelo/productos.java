@@ -1,10 +1,17 @@
 package com.example.app.Modelo;
 
-public class Productos {
-    String  direccionDelLocal,kiloOgramos,nombreProductos,nombreTienda,percio;
-    public  Productos(){}
+public class productos {
+    private  String direccionDelLocal;
+    private  String kiloOgramos;
+    private  String nombreProductos;
+    private  String nombreTienda;
+    private  String percio;
+    private String seo;
 
-    public Productos(String direccionDelLocal, String kiloOgramos, String nombreProductos, String nombreTienda, String percio) {
+    public productos() {
+    }
+
+    public productos(String direccionDelLocal, String kiloOgramos, String nombreProductos, String nombreTienda, String percio) {
         this.direccionDelLocal = direccionDelLocal;
         this.kiloOgramos = kiloOgramos;
         this.nombreProductos = nombreProductos;

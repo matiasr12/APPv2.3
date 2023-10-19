@@ -1,17 +1,21 @@
 package com.example.app;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -27,6 +31,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
+
 public class Estadisticas extends Fragment {
     Button btguardar,btnnagregar,btborrar;
     EditText nTienda;
@@ -36,14 +41,16 @@ public class Estadisticas extends Fragment {
     EditText Dlocal;
 
 
-    // funcion del regristro de datos de la tienda
-    static final int REQUEST_IMAGEN_CAPTURE =1;
-    private DatabaseReference mStorage;
+
     StorageReference storageReference;
+    FirebaseStorage storage = FirebaseStorage.getInstance();
+
     private FirebaseFirestore mfirestore;
-    String storage_path ="Fotos/*";
-    private static final int COD_SEL_STORAGE = 200;
-    private static final int COD_SEL_IMAGE = 300;
+
+    // foto
+
+    static final  int REQUEST_IMAGEN_CAPTURE = 1;
+    private  StorageReference mStorage1;
 
 
     private Uri image_url;
@@ -52,18 +59,20 @@ public class Estadisticas extends Fragment {
 
 //homa
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    //@Override
+    // public void onCreate(Bundle savedInstanceState) {
+    // super.onCreate(savedInstanceState);
         //mStorage = FirebaseDatabase.getInstance().getReference();
 
-    }
+    //}
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_estadisticas, container, false);
+
+
 
         storageReference= FirebaseStorage.getInstance().getReference();
         mfirestore = FirebaseFirestore.getInstance();
@@ -74,7 +83,6 @@ public class Estadisticas extends Fragment {
         Dlocal = v.findViewById(R.id.Dlocal);
         btguardar = v.findViewById(R.id.btguardar);
         btnnagregar= v.findViewById(R.id.btnnagregar);
-        btborrar = v.findViewById(R.id.btborrar);
 
 
 
@@ -121,10 +129,6 @@ public class Estadisticas extends Fragment {
 
                 }
 
-
-
-
-
             }
         });
 
@@ -134,12 +138,32 @@ public class Estadisticas extends Fragment {
 
 
 
+
+
         return v;
 
+
+
+    }
+    public  void tomar_foto(View v){
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if(takePictureIntent.resolveActivity(getActivity().getPackageManager())!=null){
+            startActivityForResult(takePictureIntent,REQUEST_IMAGEN_CAPTURE);
+        }
     }
 
-
-
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_IMAGEN_CAPTURE && resultCode == getActivity().RESULT_OK) {
+            Bundle extras = data.getExtras();
+            Bitmap imagenBitmap = (Bitmap) extras.get("data");
+            ImageView imFoto = (ImageView) getView().findViewById(R.id.ivFoto);
+            imFoto.setImageBitmap(Bitmap.createScaledBitmap(imagenBitmap, 500,500, false));
+        } else {
+            // Hacer algo si la actividad no se completó con éxito
+        }
+    }
 
     private void postTiendas(String nombreTienda, String nombreProductos, String kilosOgramos, String precio, String dlocal) {
     }
