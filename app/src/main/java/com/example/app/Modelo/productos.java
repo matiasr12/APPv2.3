@@ -1,12 +1,13 @@
 package com.example.app.Modelo;
 
 public class productos {
+
+
     private  String direccionDelLocal;
     private  String kiloOgramos;
-    private  String nombreProductos;
+    private  String  nombreProductos;
     private  String nombreTienda;
     private  String percio;
-    private String seo;
 
     public productos() {
     }

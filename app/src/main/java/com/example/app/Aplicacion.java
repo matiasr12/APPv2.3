@@ -1,10 +1,10 @@
 package com.example.app;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -20,7 +20,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 
@@ -60,6 +59,7 @@ public class Aplicacion extends Fragment {
         adapter = new adapterproductos(list);
         rv.setAdapter(adapter);
         ref.addValueEventListener(new ValueEventListener() {
+            @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists()){
@@ -78,33 +78,13 @@ public class Aplicacion extends Fragment {
             }
         });
 
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String s) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String s) {
-                buscar(s);
-                return false;
-            }
-        });
 
         return vista;
 
 
     }
 
-    private void buscar(String s) {
-        ArrayList<productos>milista = new ArrayList<>();
-        for(productos obj: list){
-            if(obj.getNombreProductos().toLowerCase().contains(s.toLowerCase()));
-            milista.add(obj);
-        }
-        adapterproductos  adapter = new adapterproductos(milista);
-        rv.setAdapter(adapter);
-    }
+
 
 
 

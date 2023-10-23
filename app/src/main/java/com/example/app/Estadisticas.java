@@ -5,6 +5,10 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -20,11 +24,16 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.progressindicator.LinearProgressIndicator;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.net.URI;
 import java.util.HashMap;
@@ -33,144 +42,96 @@ import java.util.Map;
 
 
 public class Estadisticas extends Fragment {
-    Button btguardar,btnnagregar,btborrar;
+    private static final int REQUEST_CODE = 1;
+    Button btguardar;
     EditText nTienda;
     EditText nProducto;
     EditText Kogramos;
     EditText Precio;
     EditText Dlocal;
+    ImageView imagenViewadd;
+    Uri imagenUri;
+    Boolean isImageAdded;
 
-
-
-    StorageReference storageReference;
-    FirebaseStorage storage = FirebaseStorage.getInstance();
-
-    private FirebaseFirestore mfirestore;
-
-    // foto
-
-    static final  int REQUEST_IMAGEN_CAPTURE = 1;
-    private  StorageReference mStorage1;
-
-
-    private Uri image_url;
-    String photo = "photo";
-    String idd;
-
-//homa
-
-    //@Override
-    // public void onCreate(Bundle savedInstanceState) {
-    // super.onCreate(savedInstanceState);
-        //mStorage = FirebaseDatabase.getInstance().getReference();
-
-    //}
-
+    DatabaseReference Dataref;
+    StorageReference Storageref;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_estadisticas, container, false);
 
-
-
-        storageReference= FirebaseStorage.getInstance().getReference();
-        mfirestore = FirebaseFirestore.getInstance();
         nTienda = v.findViewById(R.id.nTienda);
         nProducto = v.findViewById(R.id.nProducto);
         Kogramos = v.findViewById(R.id.Kogramos);
         Precio = v.findViewById(R.id.Precio);
         Dlocal = v.findViewById(R.id.Dlocal);
         btguardar = v.findViewById(R.id.btguardar);
-        btnnagregar= v.findViewById(R.id.btnnagregar);
+        imagenViewadd = v.findViewById(R.id.imagenViewadd);
 
+        Dataref = FirebaseDatabase.getInstance().getReference().child("productos");
+        Storageref = FirebaseStorage.getInstance().getReference().child("productosImg");
 
-
-
-
-
-
+        imagenViewadd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setType("image/*");
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(intent, REQUEST_CODE);
+            }
+        });
 
         btguardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String nombreTienda = nTienda.getText().toString().trim();
-                String nombreProductos = nProducto.getText().toString().trim();
-                String kilosOgramos = Kogramos.getText().toString().trim();
-                String precio = Precio.getText().toString().trim();
-                String dlocal = Dlocal.getText().toString().trim();
-
-                if(nombreTienda.isEmpty() && nombreProductos.isEmpty() && kilosOgramos.isEmpty() && precio.isEmpty() && dlocal.isEmpty()){
-                    Toast.makeText(requireContext(), "Debe completar los datos ", Toast.LENGTH_SHORT).show();
-
-                }else{
-                    postTiendas(nombreTienda,nombreProductos,kilosOgramos,precio,dlocal);
-                    Map<String, Object> map = new HashMap<>();
-                    map.put("nombreTienda",nombreTienda);
-                    map.put("nombreProductos",nombreProductos);
-                    map.put("kiloOgramos",kilosOgramos);
-                    map.put("percio",precio);
-                    map.put("direccionDelLocal",dlocal);
-
-                    mfirestore.collection("Productos").add(map).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                        @Override
-                        public void onSuccess(DocumentReference documentReference) {
-                            Toast.makeText(requireContext(), "Creado exitosamente", Toast.LENGTH_SHORT).show();
-
-
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(requireContext(), "Error al ingresar ", Toast.LENGTH_SHORT).show();
-
-                        }
-                    });
-
+                final String nombreProducto = nProducto.getText().toString();
+                if (isImageAdded && nombreProducto != null) {
+                    uploadImagen(nombreProducto);
+                } else {
+                    Toast.makeText(getContext(), "Debes seleccionar una imagen y proporcionar un nombre de producto", Toast.LENGTH_SHORT).show();
                 }
-
             }
         });
 
-
-
-
-
-
-
-
-
         return v;
-
-
-
     }
-    public  void tomar_foto(View v){
-        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if(takePictureIntent.resolveActivity(getActivity().getPackageManager())!=null){
-            startActivityForResult(takePictureIntent,REQUEST_IMAGEN_CAPTURE);
-        }
+
+    private void uploadImagen(final String nombreProducto) {
+        final String key = Dataref.push().getKey();
+        Storageref.child(key + ".jpg").putFile(imagenUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                Storageref.child(key + ".jpg").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+                        HashMap<String, Object> hashMap = new HashMap<>();
+                        hashMap.put("nombreProducto", nombreProducto);
+                        hashMap.put("nTienda", nTienda.getText().toString()); // Guardar el nombre de la tienda
+                        hashMap.put("Kogramos", Kogramos.getText().toString());
+                        hashMap.put("Precio", Precio.getText().toString());
+                        hashMap.put("Direccion del local", Dlocal.getText().toString());
+                        hashMap.put("Imagenurl", uri.toString());
+                        // Subir los datos a Firebase Realtime Database bajo una clave única
+                        Dataref.child(key).setValue(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                Toast.makeText(getView().getContext(), "Producto registrado con éxito", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
+                });
+            }
+        });
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_IMAGEN_CAPTURE && resultCode == getActivity().RESULT_OK) {
-            Bundle extras = data.getExtras();
-            Bitmap imagenBitmap = (Bitmap) extras.get("data");
-            ImageView imFoto = (ImageView) getView().findViewById(R.id.ivFoto);
-            imFoto.setImageBitmap(Bitmap.createScaledBitmap(imagenBitmap, 500,500, false));
-        } else {
-            // Hacer algo si la actividad no se completó con éxito
+        if (requestCode == REQUEST_CODE && data!=null) {
+            imagenUri = data.getData();
+            isImageAdded = true;
+            imagenViewadd.setImageURI(imagenUri);
         }
     }
-
-    private void postTiendas(String nombreTienda, String nombreProductos, String kilosOgramos, String precio, String dlocal) {
-    }
-
 }
-
-
-
-
-
