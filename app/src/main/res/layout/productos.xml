@@ -1,62 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#00BFFF">
 
 
-    <androidx.cardview.widget.CardView
-        app:cardCornerRadius="15dp"
-        android:layout_margin="10dp"
+    <ImageView
+        android:id="@+id/img1"
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/imagen" />
+
+    <TextView
+        android:id="@+id/textView3"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-    <LinearLayout
-        android:backgroundTint="#ff8000"
-        android:layout_margin="10dp"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="265dp"
+        android:gravity="center"
+        android:text="mi producto"
+        android:textColor="#FFFFFF"
+        android:textSize="25dp"
+        android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/tv_direccion"
-            android:textColor="#000"
-            android:textSize="25dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="direccionDelLocal" />
-
-        <TextView
-            android:id="@+id/tv_kog"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="kiloOgramos"
-            android:textColor="#000"
-            android:textSize="25dp" />
-        <TextView
-            android:id="@+id/tv_nombre"
-            android:textColor="#000"
-            android:textSize="25dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="nombreProductos" />
-        <TextView
-            android:id="@+id/tv_nombret"
-            android:textColor="#000"
-            android:textSize="25dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="nombreTienda" />
-
-        <TextView
-            android:id="@+id/tv_percio"
-            android:textColor="#000"
-            android:textSize="25dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="percio" />
-
-    </LinearLayout>
-
-
-</LinearLayout>
+</RelativeLayout>

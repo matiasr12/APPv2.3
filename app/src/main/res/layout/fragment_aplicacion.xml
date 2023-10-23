@@ -8,17 +8,20 @@
     tools:context=".Aplicacion"
     android:orientation="vertical">
 
-    <SearchView
-        android:id="@+id/search"
+
+    <TextView
+        android:id="@+id/inputSearch"
+        android:hint="Search data here..."
+        android:layout_margin="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"/>
-    
+        />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv"
-        android:layout_margin="10dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_margin="10dp" />
 
 
 </LinearLayout>

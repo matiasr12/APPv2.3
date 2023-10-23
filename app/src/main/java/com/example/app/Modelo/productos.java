@@ -1,62 +1,70 @@
 package com.example.app.Modelo;
 
 public class productos {
+    private String Direccion_del_local;
+    private String Imagenurl;
+    private String Kogramos;
+    private String Precio;
+    private String nTienda;
+    private String nombreProducto;
 
-
-    private  String direccionDelLocal;
-    private  String kiloOgramos;
-    private  String  nombreProductos;
-    private  String nombreTienda;
-    private  String percio;
+    public productos(String direccion_del_local, String imagenurl, String kogramos, String precio, String nTienda, String nombreProducto) {
+        Direccion_del_local = direccion_del_local;
+        Imagenurl = imagenurl;
+        Kogramos = kogramos;
+        Precio = precio;
+        this.nTienda = nTienda;
+        this.nombreProducto = nombreProducto;
+    }
 
     public productos() {
     }
 
-    public productos(String direccionDelLocal, String kiloOgramos, String nombreProductos, String nombreTienda, String percio) {
-        this.direccionDelLocal = direccionDelLocal;
-        this.kiloOgramos = kiloOgramos;
-        this.nombreProductos = nombreProductos;
-        this.nombreTienda = nombreTienda;
-        this.percio = percio;
+    public String getDireccion_del_local() {
+        return Direccion_del_local;
     }
 
-    public String getDireccionDelLocal() {
-        return direccionDelLocal;
+    public void setDireccion_del_local(String direccion_del_local) {
+        Direccion_del_local = direccion_del_local;
     }
 
-    public void setDireccionDelLocal(String direccionDelLocal) {
-        this.direccionDelLocal = direccionDelLocal;
+    public String getImagenurl() {
+        return Imagenurl;
     }
 
-    public String getKiloOgramos() {
-        return kiloOgramos;
+    public void setImagenurl(String imagenurl) {
+        Imagenurl = imagenurl;
     }
 
-    public void setKiloOgramos(String kiloOgramos) {
-        this.kiloOgramos = kiloOgramos;
+    public String getKogramos() {
+        return Kogramos;
     }
 
-    public String getNombreProductos() {
-        return nombreProductos;
+    public void setKogramos(String kogramos) {
+        Kogramos = kogramos;
     }
 
-    public void setNombreProductos(String nombreProductos) {
-        this.nombreProductos = nombreProductos;
+    public String getPrecio() {
+        return Precio;
     }
 
-    public String getNombreTienda() {
-        return nombreTienda;
+    public void setPrecio(String precio) {
+        Precio = precio;
     }
 
-    public void setNombreTienda(String nombreTienda) {
-        this.nombreTienda = nombreTienda;
+    public String getnTienda() {
+        return nTienda;
     }
 
-    public String getPercio() {
-        return percio;
+    public void setnTienda(String nTienda) {
+        this.nTienda = nTienda;
     }
 
-    public void setPercio(String percio) {
-        this.percio = percio;
+    public String getNombreProducto() {
+        return nombreProducto;
+    }
+
+    public void setNombreProducto(String nombreProducto) {
+        this.nombreProducto = nombreProducto;
     }
 }

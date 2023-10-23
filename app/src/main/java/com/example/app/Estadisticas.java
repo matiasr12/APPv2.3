@@ -110,7 +110,7 @@ public class Estadisticas extends Fragment {
                         hashMap.put("nTienda", nTienda.getText().toString()); // Guardar el nombre de la tienda
                         hashMap.put("Kogramos", Kogramos.getText().toString());
                         hashMap.put("Precio", Precio.getText().toString());
-                        hashMap.put("Direccion del local", Dlocal.getText().toString());
+                        hashMap.put("Direccion_del_local", Dlocal.getText().toString());
                         hashMap.put("Imagenurl", uri.toString());
                         // Subir los datos a Firebase Realtime Database bajo una clave única
                         Dataref.child(key).setValue(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
