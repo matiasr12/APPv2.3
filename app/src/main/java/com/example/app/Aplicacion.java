@@ -2,6 +2,7 @@ package com.example.app;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,33 +13,61 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 
 import com.example.app.Modelo.productos;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.squareup.picasso.Picasso;
 
 
 public class Aplicacion extends Fragment {
 
     EditText inputSearch;
-    RecyclerView rv;
-    FirestoreRecyclerOptions<productos> options;
-
+    RecyclerView recyclerView;
+    FirebaseRecyclerOptions<productos> options;
+    FirebaseRecyclerAdapter<productos,MyViewHolder>adapter;
+    DatabaseReference DataRef;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // funcion para llamar en el frackmento
         View vista = inflater.inflate(R.layout.fragment_aplicacion, container, false);
-        //rv = vista.findViewById(R.id.rv);
-        //rv = getView().findViewById(R.id.rv);
-        //searchView = vista.findViewById(R.id.search);
-        //searchView = getView().findViewById(R.id.search);
-        inputSearch = vista.findViewById(R.id.inputSearch);
-        rv = vista.findViewById(R.id.rv);
-        rv.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
-        rv.setHasFixedSize(true);
+        DataRef = FirebaseDatabase.getInstance().getReference().child("productos");
+        inputSearch=vista.findViewById(R.id.inputSearch);
+        recyclerView= vista.findViewById(R.id.rv);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext().getApplicationContext()));
+        recyclerView.setHasFixedSize(true);
+        
+        LoadData();
+
+
 
         return vista;
 
+    }
+
+    private void LoadData() {
+        options = new FirebaseRecyclerOptions.Builder<productos>().setQuery(DataRef,productos.class).build();
+        adapter = new FirebaseRecyclerAdapter<productos, MyViewHolder>(options) {
+            @Override
+            protected void onBindViewHolder(@NonNull MyViewHolder holder, int position, @NonNull productos model) {
+                holder.textView.setText(model.getNombreProducto());
+                Picasso.get().load(model.getImagenurl()).into(holder.imageView);
+
+            }
+
+            @NonNull
+            @Override
+            public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.productos,parent,false);
+                return new MyViewHolder(v);
+            }
+        };
+        adapter.startListening();
+        recyclerView.setAdapter(adapter);
     }
 
 

@@ -24,7 +24,7 @@ public class prueba {
     public class Aplicacion extends Fragment {
         DatabaseReference ref;
       //  ArrayList<productos> list;
-        RecyclerView rv;
+       RecyclerView rv;
         SearchView searchView;
        // adapterproductos adapter;
         LinearLayoutManager lm;
@@ -46,7 +46,7 @@ public class prueba {
             // funcion para llamar en el frackmento
             View vista = inflater.inflate(R.layout.fragment_aplicacion, container, false);
             ref = FirebaseDatabase.getInstance().getReference().child("Productos");
-            rv = vista.findViewById(R.id.rv);
+           // rv = vista.findViewById(R.id.rv);
             //rv = getView().findViewById(R.id.rv);
            // searchView = vista.findViewById(R.id.search);
             //searchView = getView().findViewById(R.id.search);
