@@ -1,5 +1,6 @@
 package com.example.app;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -53,9 +54,20 @@ public class Aplicacion extends Fragment {
         options = new FirebaseRecyclerOptions.Builder<productos>().setQuery(DataRef,productos.class).build();
         adapter = new FirebaseRecyclerAdapter<productos, MyViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull MyViewHolder holder, int position, @NonNull productos model) {
+            protected void onBindViewHolder(@NonNull MyViewHolder holder, final int position, @NonNull productos model) {
+
+                final  String  nombreProducto = model.getNombreProducto();
                 holder.textView.setText(model.getNombreProducto());
                 Picasso.get().load(model.getImagenurl()).into(holder.imageView);
+                holder.v.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                            Intent intent = new Intent(getActivity(), Mainvistas.class);
+                            intent.putExtra("productosKey",getRef(position).getKey());
+                            startActivity(intent);
+
+                    }
+                });
 
             }
 

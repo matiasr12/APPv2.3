@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#00BFFF">
+
+
+    <ImageView
+        android:id="@+id/img2"
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/imagen" />
+
+    <TextView
+        android:id="@+id/produc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="265dp"
+        android:gravity="center"
+        android:text="mi producto"
+        android:textColor="#FFFFFF"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/produc2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
+        android:gravity="center"
+        android:text="Precio "
+        android:textColor="#FFFFFF"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/produc3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="333dp"
+        android:gravity="center"
+        android:text="Kilos o Gramos"
+        android:textColor="#FFFFFF"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/produc4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="370dp"
+        android:gravity="center"
+        android:text="Nombre de tienda "
+        android:textColor="#FFFFFF"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/produc5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="404dp"
+        android:gravity="center"
+        android:text="Direccion el local "
+        android:textColor="#FFFFFF"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+</RelativeLayout>
