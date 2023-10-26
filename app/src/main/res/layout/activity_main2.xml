@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/ednombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre del Producto" />
+
+    <EditText
+        android:id="@+id/edkilos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Kilogramos" />
+
+    <!-- Campo para editar el Precio -->
+    <EditText
+        android:id="@+id/edprecio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Precio" />
+
+    <!-- Campo para editar el número de tienda -->
+    <EditText
+        android:id="@+id/edtienda"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Número de Tienda" />
+
+    <!-- Campo para editar la dirección del local -->
+    <EditText
+        android:id="@+id/eddirecciom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Dirección del Local" />
+
+    <!-- Botón para actualizar los datos -->
+    <Button
+        android:id="@+id/btnActualizar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Actualizar" />
+
+</LinearLayout>

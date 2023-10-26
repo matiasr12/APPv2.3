@@ -71,5 +71,11 @@
         android:textColor="#FFFFFF"
         android:textSize="25dp"
         android:textStyle="bold" />
+    <Button
+        android:id="@+id/Editbt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="404dp"
+        android:text="Edit" />
 
 </RelativeLayout>
