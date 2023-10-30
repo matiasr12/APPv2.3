@@ -18,20 +18,16 @@ import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity2 extends AppCompatActivity {
 
-    private EditText nombre,kilos,Precio,tienda,direccion;
-
+    private EditText nombre, kilos, Precio, tienda, direccion;
     private Button btnActualizar;
 
     private FirebaseDatabase database;
-    DatabaseReference Ref;
-
+    private DatabaseReference productosRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-
-
 
         nombre = findViewById(R.id.ednombre);
         kilos = findViewById(R.id.edkilos);
@@ -40,17 +36,17 @@ public class MainActivity2 extends AppCompatActivity {
         direccion = findViewById(R.id.eddirecciom);
         btnActualizar = findViewById(R.id.btnActualizar);
 
-
         database = FirebaseDatabase.getInstance();
-        Ref = database.getReference("productos");
+        productosRef = database.getReference("productos");
 
+        // Obtén el nombre del producto que deseas editar (clave única).
+        final String nombreProducto = getIntent().getStringExtra("nombreProducto");
 
-        Ref.addValueEventListener(new ValueEventListener() {
+        productosRef.orderByChild("nombreProducto").equalTo(nombreProducto).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                DataSnapshot productoSnapshot = dataSnapshot.child("productos");
-                if (productoSnapshot.exists()) {
-                    productos producto = productoSnapshot.getValue(productos.class);
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    productos  producto = snapshot.getValue(productos.class);
                     if (producto != null) {
                         nombre.setText(producto.getNombreProducto());
                         kilos.setText(producto.getKogramos());
@@ -67,21 +63,35 @@ public class MainActivity2 extends AppCompatActivity {
             }
         });
 
-
-
         btnActualizar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String nombreProducto = nombre.getText().toString();
+                String nuevoNombreProducto = nombre.getText().toString();
                 String kilogramos = kilos.getText().toString();
                 String nTienda = tienda.getText().toString();
-                String direccionLocal = direccion.getText().toString();
+                String nuevaDireccionLocal = direccion.getText().toString();
                 String precio = Precio.getText().toString();
 
-               // productos product = new productos(nombreProducto,kilogramos,nTienda,direccionLocal,precio);
-                //Ref.child("productos").setValue(product);
+                // Actualiza los datos del producto utilizando el nombre del producto como clave.
+                productosRef.orderByChild("nombreProducto").equalTo(nombreProducto).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                            snapshot.getRef().child("nombreProducto").setValue(nuevoNombreProducto);
+                            snapshot.getRef().child("Kogramos").setValue(kilogramos);
+                            snapshot.getRef().child("Precio").setValue(precio);
+                            snapshot.getRef().child("nTienda").setValue(nTienda);
+                            snapshot.getRef().child("Direccion_del_local").setValue(nuevaDireccionLocal);
+                        }
+                        Toast.makeText(MainActivity2.this, "Producto actualizado con éxito", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                        Toast.makeText(MainActivity2.this, "Error", Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
-
     }
 }

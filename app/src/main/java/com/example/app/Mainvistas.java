@@ -22,10 +22,9 @@ public class Mainvistas extends AppCompatActivity {
 
 
     ImageView imageView;
-    TextView prdictps2,prdictps1,prdictps3,prdictps4,prdictps5;
+    TextView prdictps1,prdictps2,prdictps3,prdictps4,produc22;
     Button Editbt;
     DatabaseReference Ref;
-
 
 
 
@@ -37,11 +36,9 @@ public class Mainvistas extends AppCompatActivity {
         prdictps2 = findViewById(R.id.produc2);
         prdictps3 = findViewById(R.id.produc3);
         prdictps4 = findViewById(R.id.produc4);
-        prdictps5 = findViewById(R.id.produc5);
+        produc22 = findViewById(R.id.produc22);
         Editbt = findViewById(R.id.Editbt);
         imageView=findViewById(R.id.img2);
-
-
 
 
 
@@ -56,17 +53,15 @@ public class Mainvistas extends AppCompatActivity {
                     String Kogramos = snapshot.child("Kogramos").getValue().toString();
                     String Precio =snapshot.child("Precio").getValue().toString();
                     String nTienda =snapshot.child("nTienda").getValue().toString();
-                    String Direccion_del_local =snapshot.child("Direccion_del_local").getValue().toString();
+                    String  Direccion_del_local = snapshot.child("Direccion_del_local").getValue().toString();
+
 
                     Picasso.get().load(Imagenurl).into(imageView);
                     prdictps1.setText(nombreProducto);
                     prdictps2.setText(Kogramos);
                     prdictps3.setText(Precio);
                     prdictps4.setText(nTienda);
-                    prdictps5.setText(Direccion_del_local);
-
-
-
+                    produc22.setText(Direccion_del_local);
 
                     Editbt.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -79,13 +74,6 @@ public class Mainvistas extends AppCompatActivity {
 
                         }
                     });
-
-
-
-
-
-
-
                 }
             }
 

@@ -7,7 +7,7 @@
 
 
     <ImageView
-        android:id="@+id/img2"
+        android:id="@+id/img1"
         android:layout_width="wrap_content"
         android:layout_height="250dp"
         android:layout_marginStart="20dp"
@@ -17,12 +17,21 @@
         android:scaleType="fitXY"
         android:src="@drawable/imagen" />
 
-
     <TextView
-        android:id="@+id/produc"
+        android:id="@+id/textxx1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="265dp"
+        android:gravity="center"
+        android:text="Tienda"
+        android:textColor="#FFFFFF"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/prodc1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
         android:gravity="center"
         android:text="mi producto"
         android:textColor="#FFFFFF"
@@ -30,57 +39,25 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/produc2"
+        android:id="@+id/textxxw"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="335dp"
         android:gravity="center"
-        android:text="Precio "
+        android:text="Direccion"
         android:textColor="#FFFFFF"
         android:textSize="25dp"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/produc3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="333dp"
-        android:gravity="center"
-        android:text="Kilos o Gramos"
-        android:textColor="#FFFFFF"
-        android:textSize="25dp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/produc4"
+        android:id="@+id/prodc2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="370dp"
         android:gravity="center"
-        android:text="Nombre de tienda "
+        android:text="hola"
         android:textColor="#FFFFFF"
         android:textSize="25dp"
         android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/produc22"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="404dp"
-        android:gravity="center"
-        android:text="Direccion el local "
-        android:textColor="#FFFFFF"
-        android:textSize="25dp"
-        android:textStyle="bold" />
-
-
-
-
-    <Button
-        android:id="@+id/Editbt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="480dp"
-        android:text="Edit" />
 
 </RelativeLayout>
