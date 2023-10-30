@@ -7,12 +7,12 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ViewFlipper;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Portada#newInstance} factory method to
- * create an instance of this fragment.
- */
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+
+
 public class Portada extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match

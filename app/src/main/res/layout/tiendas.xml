@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="#00BFFF">
+    android:background="#80FFFFFF" >
 
 
     <ImageView
         android:id="@+id/img1"
         android:layout_width="wrap_content"
         android:layout_height="250dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
         android:scaleType="fitXY"
         android:src="@drawable/imagen" />
 
@@ -21,17 +18,16 @@
         android:id="@+id/textxx1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="265dp"
         android:gravity="center"
         android:text="Tienda"
         android:textColor="#FFFFFF"
         android:textSize="25dp"
         android:textStyle="bold" />
+
     <TextView
         android:id="@+id/prodc1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
         android:gravity="center"
         android:text="mi producto"
         android:textColor="#FFFFFF"
@@ -42,7 +38,6 @@
         android:id="@+id/textxxw"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="335dp"
         android:gravity="center"
         android:text="Direccion"
         android:textColor="#FFFFFF"
@@ -53,11 +48,10 @@
         android:id="@+id/prodc2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="370dp"
         android:gravity="center"
         android:text="hola"
         android:textColor="#FFFFFF"
         android:textSize="25dp"
         android:textStyle="bold" />
 
-</RelativeLayout>
+</LinearLayout>

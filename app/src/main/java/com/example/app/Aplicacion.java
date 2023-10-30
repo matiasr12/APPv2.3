@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +22,7 @@ import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.squareup.picasso.Picasso;
 
 
@@ -42,7 +45,29 @@ public class Aplicacion extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext().getApplicationContext()));
         recyclerView.setHasFixedSize(true);
         
-        LoadData();
+        LoadData("");
+
+        inputSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if(editable.toString()!=null){
+                    LoadData(editable.toString());
+                }else{
+                    LoadData("");
+                }
+
+            }
+        });
 
 
 
@@ -50,8 +75,9 @@ public class Aplicacion extends Fragment {
 
     }
 
-    private void LoadData() {
-        options = new FirebaseRecyclerOptions.Builder<productos>().setQuery(DataRef,productos.class).build();
+    private void LoadData( String data) {
+        Query query = DataRef.orderByChild("nombreProducto").endAt(data+"\uf8ff");
+        options = new FirebaseRecyclerOptions.Builder<productos>().setQuery(query,productos.class).build();
         adapter = new FirebaseRecyclerAdapter<productos, MyViewHolder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull MyViewHolder holder, final int position, @NonNull productos model) {

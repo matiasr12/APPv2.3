@@ -3,8 +3,20 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="#00BFFF">
+    android:background="#a18594"
+    android:src="@drawable/fondo" >
 
+
+    <TextView
+        android:id="@+id/textx"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="270dp"
+        android:gravity="center"
+        android:text="Productos"
+        android:textColor="#FFFFFF"
+        android:textSize="25dp"
+        android:textStyle="bold"/>
 
     <ImageView
         android:id="@+id/img2"
@@ -22,9 +34,24 @@
         android:id="@+id/produc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="265dp"
+        android:layout_marginTop="299dp"
         android:gravity="center"
         android:text="mi producto"
+        android:textColor="#FFFFFF"
+        android:textSize="25dp"
+        android:textStyle="bold"/>
+
+
+
+
+
+    <TextView
+        android:id="@+id/textx1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="330dp"
+        android:gravity="center"
+        android:text="Precio"
         android:textColor="#FFFFFF"
         android:textSize="25dp"
         android:textStyle="bold" />
@@ -33,9 +60,23 @@
         android:id="@+id/produc2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="360dp"
         android:gravity="center"
         android:text="Precio "
+        android:textColor="#FFFFFF"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+
+    ----
+
+    <TextView
+        android:id="@+id/textx2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="390dp"
+        android:gravity="center"
+        android:text="Kilos o gramos "
         android:textColor="#FFFFFF"
         android:textSize="25dp"
         android:textStyle="bold" />
@@ -44,9 +85,20 @@
         android:id="@+id/produc3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="333dp"
+        android:layout_marginTop="420dp"
         android:gravity="center"
         android:text="Kilos o Gramos"
+        android:textColor="#FFFFFF"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textx3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="450dp"
+        android:gravity="center"
+        android:text="Nombre de tienda  "
         android:textColor="#FFFFFF"
         android:textSize="25dp"
         android:textStyle="bold" />
@@ -55,9 +107,21 @@
         android:id="@+id/produc4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="370dp"
+        android:layout_marginTop="475dp"
         android:gravity="center"
         android:text="Nombre de tienda "
+        android:textColor="#FFFFFF"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/textx4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="500dp"
+        android:gravity="center"
+        android:text="Direccion del local  "
         android:textColor="#FFFFFF"
         android:textSize="25dp"
         android:textStyle="bold" />
@@ -66,7 +130,7 @@
         android:id="@+id/produc22"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="404dp"
+        android:layout_marginTop="530dp"
         android:gravity="center"
         android:text="Direccion el local "
         android:textColor="#FFFFFF"
@@ -76,11 +140,18 @@
 
 
 
+
+
+
+
+
+
+
     <Button
         android:id="@+id/Editbt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="480dp"
+        android:layout_marginTop="590dp"
         android:text="Edit" />
 
 </RelativeLayout>

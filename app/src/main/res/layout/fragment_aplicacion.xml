@@ -12,12 +12,15 @@
         android:id="@+id/inputSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Busca "
+        android:hint="Buscar "
         android:layout_margin="20dp"
         android:paddingLeft="20dp"
         android:paddingTop="8dp"
         android:paddingBottom="8dp"
-        android:paddingRight="10dp"/>
+        android:paddingRight="10dp"
+        android:drawableLeft="@drawable/busqueda"
+        />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv"
